@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Administrace produktů</title>
+        <link rel="stylesheet" href="/css/admin.css">
+    </head>
+<body>
+    <header>
+        <h1>Administrace produktů</h1>
+        <% if (session && session.isAdmin) { %>
+            <a href="/auth/logout" class="logout-button">Odhlásit se</a>
+        <% } %>
+    </header>
+    <main>
+        <h2>Seznam produktů</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Název</th>
+                    <th>Popis</th>
+                    <th>Cena</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.id %></td>
+                        <td><%= product.name %></td>
+                        <td><%= product.description %></td>
+                        <td><%= product.price %> Kč</td>
+                        <td>
+                            <form action="/admin/delete/<%= product.id %>" method="POST" style="display: inline-block;">
+                                <button type="submit">Smazat</button>
+                            </form>
+                            <a href="/admin/edit/<%= product.id %>">Upravit</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <h2>Přidat nový produkt</h2>
+        <form action="/admin/add" method="POST">
+            <input type="text" name="name" placeholder="Název" required>
+            <textarea name="description" placeholder="Popis" required></textarea>
+            <input type="number" name="price" placeholder="Cena" required>
+            <button type="submit">Přidat produkt</button>
+        </form>
+    </main>
+    
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* Globální styly pro administraci */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: #007bff;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+header .logout-button {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #ff4444;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+header .logout-button:hover {
+    background-color: #cc0000;
+}
+
+/* Hlavní sekce */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h2 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* Tabulka produktů */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle; /* Vertikální zarovnání na střed */
+}
+
+th {
+    background: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+/* Styl tlačítek v tabulce */
+td .actions {
+    display: flex;
+    flex-direction: column; /* Tlačítka pod sebou */
+    align-items: center; /* Horizontální zarovnání na střed */
+    gap: 10px; /* Mezera mezi tlačítky */
+}
+
+td form button,
+td a {
+    display: block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Styl pro tlačítko Smazat */
+td form button {
+    background-color: #ff4444;
+}
+
+td form button:hover {
+    background-color: #cc0000;
+}
+
+/* Styl pro tlačítko Upravit */
+td a {
+    background-color: #007bff;
+}
+
+td a:hover {
+    background-color: #0056b3;
+}
+
+/* Formulář pro přidání produktu */
+form {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form button {
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button:hover {
+    background: #0056b3;
+}

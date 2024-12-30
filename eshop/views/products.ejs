@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <h1>Seznam produktů</h1>
+
+        <% if (session && session.isAdmin) { %>
+            <a href="/admin" class="admin-button">Admin</a>
+        <% } %>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="product-list">
+                <% products.forEach(product => { %>
+                    <div class="product-card">
+                        <h2><%= product.name %></h2>
+                        <p><%= product.description %></p>
+                        <p><strong>Cena:</strong> <%= product.price %> Kč</p>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
