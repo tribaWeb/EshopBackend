@@ -1,0 +1,5 @@
+# Ignorovat node_modules (složka se závislostmi Node.js)
+node_modules/
+
+# Ignorovat .env (soukromé proměnné prostředí)
+.env

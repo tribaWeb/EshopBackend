@@ -1,17 +1,14 @@
-import pkg from 'pg';
-const { Client } = pkg;
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
 
-const db = new Client({
-    user: 'postgres', // Uživatelské jméno
-    host: 'localhost', // Server
-    database: 'eshop', // Název databáze
-    password: 'Alenka12', // Heslo
-    port: 5432, // Port (standardně 5432)
+dotenv.config(); // Načtení proměnných z .env souboru
+
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
-// Připojení k databázi
-db.connect()
-    .then(() => console.log('Připojeno k databázi!'))
-    .catch(err => console.error('Chyba při připojování k databázi:', err.stack));
-
-export default db;
+export default pool;
